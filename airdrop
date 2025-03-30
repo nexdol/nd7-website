@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meme7 - Airdrop</title>
+  <link rel="icon" href="favicon_32x32.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #FFC107;
+      --secondary: #2E2E2E;
+      --accent: #E6E6E6;
+      --bg-dark: #1A1A1A;
+      --text-dark: #FFFFFF;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1A1A1A, #2E2E2E);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .airdrop-container {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 800px;
+      background: rgba(26, 26, 26, 0.9);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin: 20px;
+    }
+    .airdrop-container h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .airdrop-container p {
+      font-size: 18px;
+      color: var(--accent);
+      margin-bottom: 30px;
+    }
+    .airdrop-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .airdrop-form input {
+      padding: 15px;
+      width: 100%;
+      max-width: 400px;
+      border: none;
+      border-radius: 10px;
+      background: var(--secondary);
+      color: var(--text-dark);
+      font-size: 16px;
+      outline: none;
+    }
+    .airdrop-form input::placeholder {
+      color: var(--accent);
+    }
+    .airdrop-form button {
+      padding: 15px 40px;
+      background: var(--primary);
+      color: var(--secondary);
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .airdrop-form button:hover {
+      background: var(--accent);
+      transform: scale(1.05);
+      box-shadow: var(--shadow);
+    }
+    .status {
+      margin-top: 20px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 480px) {
+      .airdrop-container h1 { font-size: 32px; }
+      .airdrop-container p { font-size: 14px; }
+      .airdrop-form input { max-width: 300px; }
+      .airdrop-form button { padding: 10px 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="airdrop-container">
+    <h1>Meme7 Airdrop</h1>
+    <p>Welcome to the Meme7 Airdrop! Grab your share of 5M Meme7 (5% of 100M supply), the ultimate Shabex meme coin for BNB holders (min. 0.1 BNB).</p>
+    <p>Enter your wallet address to join the Meme7 watchlist for the Q2 2025 drop (4M Meme7).</p>
+    <div class="airdrop-form">
+      <input type="text" placeholder="Enter your BNB wallet address" id="wallet-address"/>
+      <button onclick="submitWallet()">Join Now</button>
+    </div>
+    <p class="status" id="status-message">Status: Enter your address to get started.</p>
+  </div>
+
+  <footer>
+    <p><a href="index.html">Back to ND7 Home</a> | © 2025 Meme7 on Shabex. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function submitWallet() {
+      const walletAddress = document.getElementById('wallet-address').value;
+      const statusMessage = document.getElementById('status-message');
+      
+      if (walletAddress.length < 40 || !walletAddress.startsWith('0x')) {
+        statusMessage.textContent = "Status: Please enter a valid BNB wallet address.";
+        statusMessage.style.color = "#FF5555";
+      } else {
+        statusMessage.textContent = "Status: Wallet added to Meme7 watchlist! Check back in Q2 2025.";
+        statusMessage.style.color = "#FFC107";
+      }
+    }
+  </script>
+</body>
+</html>
